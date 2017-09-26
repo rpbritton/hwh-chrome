@@ -1,0 +1,49 @@
+body {
+	width: 500px;
+	height: 500px;
+	margin: 0;
+	padding: 0;
+}
+
+#sidebar {
+	background-color: green;
+	width: 48px;
+	height: 100%;
+	float: left;
+	position: relative;
+}
+
+.sidebar-button {
+	background-color: yellow;
+	padding: 6px;
+	margin: 0;
+	display: block;
+}
+
+#sidebar-selected {
+	background-color: blue;
+	width: 2px;
+	height: 48px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#sidebar-refresh {
+	position: absolute;
+	left: 0;
+	bottom: 48px;
+}
+
+#sidebar-settings {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+#assignments-wrapper {
+	background-color: red;
+	width: calc(100% - 48px);
+	height: 100%;
+	float: left;
+}

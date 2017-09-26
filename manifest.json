@@ -1,0 +1,19 @@
+{
+	"manifest_version": 2,
+
+	"name": "hwh-chrome",
+	"description": "This helps homework",
+	"author": "Ryan Britton",
+	"version": "1",
+
+	"browser_action": {
+		"default_icon": "icons/icon.png",
+		"default_popup": "popup.html"
+	},
+
+	"options_page": "options.html",
+	"options_ui": {
+		"chrome_style": true,
+		"page": "options.html"
+	}
+}
