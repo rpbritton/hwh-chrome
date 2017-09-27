@@ -1,0 +1,9 @@
+.ink {
+/*	background-color: #000;
+*/	border-radius: 50%;
+	position: absolute;
+	pointer-events: none;
+	transform: scale(0);
+	opacity: 0.2;
+	transition: transform 600ms, opacity 600ms;
+}

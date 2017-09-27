@@ -1,0 +1,58 @@
+#sidebar {
+	background-color: #181818;
+	width: 48px;
+	height: 100%;
+	float: left;
+	position: relative;
+}
+
+.sidebar-button {
+	position: absolute;
+	padding: 6px;
+	margin: 0;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.sidebar-button svg {
+	user-select: none;
+	display: block;
+}
+
+.sidebar-button svg:first-child {
+	fill: #b8b8b8;
+}
+
+#sidebar-search {
+	top: 0;
+	left: 0;
+}
+
+#sidebar-calendar {
+	top: 48px;
+	left: 0;
+}
+
+#sidebar-add {
+	top: 96px;
+	left: 0;
+}
+
+#sidebar-refresh {
+	bottom: 48px;
+	left: 0;
+}
+
+#sidebar-settings {
+	bottom: 0;
+	left: 0;
+}
+
+#sidebar-selected {
+	background-color: #ab4642;
+	width: 4px;
+	height: 48px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
