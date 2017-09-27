@@ -1,0 +1,19 @@
+.tooltip {
+	position: absolute;
+	left: 90%;
+	height: 1em;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	pointer-events: none;
+	z-index: 20;
+	padding: 6px 11px;
+	opacity: 0;
+	border-radius: 2px;
+	background-color: #181818;
+	color: #b8b8b8;
+	transition: opacity 200ms;
+	white-space: nowrap;
+	font-family: "PT Mono";
+	font-size: 12px;
+}

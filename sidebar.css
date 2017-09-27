@@ -5,29 +5,36 @@
 	float: left;
 	position: relative;
 	z-index: 5;
-	box-shadow: 0 0 7px #000;
+	box-shadow: 0 0 3px #000;
 	user-select: none;
 }
 
 .sidebar-button {
 	position: absolute;
-	padding: 6px;
 	margin: 0;
-	overflow: hidden;
 	cursor: pointer;
+	text-align: center;
+	width: 48px;
+	height: 48px;
 }
 
-.sidebar-button svg {
-	user-select: none;
-	pointer-events: none;
-	display: block;
+.sidebar-button .fa {
+	font-size: 26px;
+	line-height: 48px;
+	color: #b8b8b8;
+	transition: color 200ms;
 }
 
-.sidebar-button svg:first-child {
-	fill: #b8b8b8;
+.sidebar-button:hover .fa {
+	color: #f8f8f8;
 }
 
-#sidebar-calendar {
+.sidebar-button:hover .tooltip  {
+	opacity: 0.6;
+	transition-delay: 700ms;
+}
+
+#sidebar-tasks {
 	top: 0;
 	left: 0;
 }

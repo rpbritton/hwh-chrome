@@ -1,8 +1,11 @@
-function inkAnimation(ev, el, color) {	
+function inkAnimation(ev, el, color) {
+	var inkWrapper = document.createElement('div');
+	inkWrapper.setAttribute('class', 'ink-wrapper');
+
 	var longDim = Math.sqrt(Math.pow(el.offsetWidth *2, 2) +Math.pow(el.offsetHeight *2, 2));
 
-	var ink = document.createElement("div");
-	ink.setAttribute("class", "ink");
+	var ink = document.createElement('div');
+	ink.setAttribute('class', 'ink');
 	ink.style.width = longDim +"px";
 	ink.style.height = longDim +"px";
 	ink.style.left = (ev.clientX -el.getBoundingClientRect().left -longDim /2) +"px";
@@ -14,18 +17,19 @@ function inkAnimation(ev, el, color) {
 		ink.style.transform = "scale(1)";
 	}, 0);
 
-	el.addEventListener("mouseup", function() { inkAnimationEnd(ink); });
-	el.addEventListener("mouseleave", function() { inkAnimationEnd(ink); });
+	el.addEventListener("mouseup", function() { inkAnimationEnd(inkWrapper); });
+	el.addEventListener("mouseleave", function() { inkAnimationEnd(inkWrapper); });
 
-	el.appendChild(ink);
+	inkWrapper.appendChild(ink);
+	el.appendChild(inkWrapper);
 }
 
-function inkAnimationEnd(ink) {
+function inkAnimationEnd(inkWrapper) {
 	setTimeout(function() {
-		ink.style.opacity = "0";
+		inkWrapper.style.opacity = "0";
 	}, 0);
 
 	setTimeout(function() {
-		ink.remove();
+		inkWrapper.remove();
 	}, 400);
 }
