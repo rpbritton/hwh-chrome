@@ -2,18 +2,23 @@
 <html>
 <head>
 	<title>HWH</title>
-	<link rel="stylesheet" type="text/css" href="popup.css">
-	<link rel="stylesheet" type="text/css" href="sidebar.css">
-	<link rel="stylesheet" type= text/css" href="assignments.css">
+	<link rel="stylesheet" href="popup.css">
+	<link rel="stylesheet" href="sidebar.css">
+	<link rel="stylesheet" href="search.css">
+	<link rel="stylesheet" href="assignments.css">
 
-	<link rel="stylesheet" type="text/css" href="ink.css">
-	<link rel="stylesheet" type="text/css" href="tooltip.css">
-	<link rel="stylesheet" type="text/css" href="fonts.css">
+	<link rel="stylesheet" href="ink.css">
+	<link rel="stylesheet" href="tooltip.css">
+	<link rel="stylesheet" href="fonts.css">
 	<link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
 <div id="sidebar">
+	<div id="sidebar-user" class="sidebar-button">
+		<i class="fa fa-user fa-fw"></i>		<!-- USE PROFILE PHOTO -->
+		<span class="tooltip">USER</span>		<!-- USE ACOOUNT NAME -->
+	</div>
 	<div id="sidebar-tasks" class="sidebar-button">
 		<i class="fa fa-tasks fa-fw"></i>
 		<span class="tooltip">YOUR TASKS</span>
@@ -38,13 +43,20 @@
 	<div id="sidebar-selected"></div>
 </div>
 
+<div id="search-wrapper">
+	<div id="search-icon">
+		<i class="fa fa-search fa-fw"></i>
+	</div>
+	<span id="search-box" contenteditable="true">Search</span>
+</div>
+
 <div id="assignments-wrapper">
 </div>
 </body>
 
 <script src="popup.js"></script>
 <script src="sidebar.js"></script>
-<script src="assignments.js"></script>
+<script src="search.js"></script>
 
 <script src="ink.js"></script>
 <html>

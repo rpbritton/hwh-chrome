@@ -7,6 +7,8 @@
 	z-index: 5;
 	box-shadow: 0 0 3px #000;
 	user-select: none;
+	transform: translate(-48px, 0);
+	transition: transform 300ms;
 }
 
 .sidebar-button {
@@ -34,18 +36,23 @@
 	transition-delay: 700ms;
 }
 
-#sidebar-tasks {
+#sidebar-user {
 	top: 0;
 	left: 0;
 }
 
-#sidebar-add {
+#sidebar-tasks {
 	top: 48px;
 	left: 0;
 }
 
-#sidebar-done {
+#sidebar-add {
 	top: 96px;
+	left: 0;
+}
+
+#sidebar-done {
+	top: 144px;
 	left: 0;
 }
 
@@ -60,12 +67,11 @@
 }
 
 #sidebar-selected {
-	background-color: #ab4642;
+	background-color: #86c1b9;
 	width: 4px;
 	height: 48px;
 	position: absolute;
 	left: 0;
-	top: 0;
 	pointer-events: none;
 	transition: top 300ms
 }

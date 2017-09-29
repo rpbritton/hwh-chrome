@@ -2,3 +2,8 @@
 	font-family: 'PT Mono';
 	src: url(fonts/PTM55FT.ttf);
 }
+
+@font-face {
+	font-family: 'PT Sans';
+	src: url(fonts/PT_Sans-Web-Regular.ttf);
+}
