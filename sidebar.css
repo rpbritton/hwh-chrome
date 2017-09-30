@@ -4,7 +4,7 @@
 	height: 100%;
 	float: left;
 	position: relative;
-	z-index: 5;
+	z-index: 10;
 	box-shadow: 0 0 3px #000;
 	user-select: none;
 	transform: translate(-48px, 0);

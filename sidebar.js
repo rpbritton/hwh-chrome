@@ -1,6 +1,6 @@
 var sidebarButtons = document.getElementsByClassName("sidebar-button");
-var selectedButton = sidebarButtons[1];		// default selected button
-selectButton(selectedButton);
+var selectedPage;
+selectPage(document.getElementById("page-" +sidebarButtons[1].id.substring(8)));	// default selected button
 
 for (var x = 0; x < sidebarButtons.length; x++) {
 	sidebarButtons[x].addEventListener("mousedown", function(ev) {
@@ -8,16 +8,42 @@ for (var x = 0; x < sidebarButtons.length; x++) {
 	});
 
 	sidebarButtons[x].addEventListener("click", function(ev) {
-		selectButton(this);
+		if (this.id.substring(8) !== "refresh") {
+			selectPage(document.getElementById("page-" +this.id.substring(8)));
+		}
 	});
 }
 
-function selectButton(el) {
-	selectedButton.firstElementChild.style.color = "#b8b8b8";
-	selectedButton = el;
+function selectPage(el) {
+	if (el != selectedPage) {
+		if (selectedPage) {
+			selectedPage.classList.add("page-hide");
+			selectedButton.firstElementChild.style.color = "#b8b8b8";
+		}
+		selectedPage = el;
+		selectedPage.classList.remove("page-hide");
 
-	document.getElementById("sidebar-selected").style.top = el.offsetTop +"px";
-	el.firstElementChild.style.color = "#f8f8f8";
+		selectedButton = document.getElementById("sidebar-" +selectedPage.id.substring(5));
+		document.getElementById("sidebar-selected").style.top = selectedButton.offsetTop +"px";
+		selectedButton.firstElementChild.style.color = "#f8f8f8";
+	}
+	
+/*	switch(el.id) {
+		case "sidebar-user": 
+			break;
+		case "sidebar-tasks":
+			break;
+		case "sidebar-add":
+			break;
+		case "sidebar-done":
+			break;
+		case "sidebar-refresh":
+			break;
+		case "sidebar-settings":
+			break;
+	}*/
+
+	
 }
 
 document.getElementById("sidebar").style.transform = "translate(0, 0)";

@@ -6,3 +6,17 @@ body {
 	overflow: hidden;
 	background: #f8f8f8;
 }
+
+.page {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 48px;
+	transition: opacity 300ms;
+}
+
+.page-hide {
+	opacity: 0;
+	pointer-events: none;
+}

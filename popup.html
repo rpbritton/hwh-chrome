@@ -5,7 +5,9 @@
 	<link rel="stylesheet" href="popup.css">
 	<link rel="stylesheet" href="sidebar.css">
 	<link rel="stylesheet" href="search.css">
-	<link rel="stylesheet" href="assignments.css">
+
+	<link rel="stylesheet" href="pageTasks.css">
+	<link rel="stylesheet" href="pageUser.css">
 
 	<link rel="stylesheet" href="ink.css">
 	<link rel="stylesheet" href="tooltip.css">
@@ -43,23 +45,30 @@
 	<div id="sidebar-selected"></div>
 </div>
 
-<div id="search">
-	<div id="search-icon">
-		<i class="fa fa-search fa-fw"></i>
-	</div>
-	<textarea id="search-box" placeholder="Search"></textarea>
-	<div id="search-clear">
-		<i class="fa fa-times fa-fw"></i>
+<div id="page-user" class="page page-hide"></div>
+
+<div id="page-tasks" class="page page-hide">
+	<div id="search">
+		<div id="search-icon">
+			<i class="fa fa-search fa-fw"></i>
+		</div>
+		<textarea id="search-box" placeholder="Search"></textarea>
+		<div id="search-clear">
+			<i class="fa fa-times fa-fw"></i>
+		</div>
 	</div>
 </div>
 
-<div id="assignments-wrapper">
-</div>
+<div id="page-add" class="page page-hide"></div>
+<div id="page-done" class="page page-hide"></div>
+<div id="page-settings" class="page page-hide"></div>
 </body>
 
 <script src="popup.js"></script>
 <script src="sidebar.js"></script>
-<script src="search.js"></script>
+
+<script src="pageUser.js"></script>
 
 <script src="ink.js"></script>
+<script src="search.js"></script>
 <html>
