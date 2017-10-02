@@ -1,4 +1,4 @@
-/*var manifest = chrome.runtime.getManifest();
+var manifest = chrome.runtime.getManifest();
 var oauthUrl = "https://accounts.google.com/o/oauth2/auth?response_type=token";
 oauthUrl += "&client_id=" +encodeURIComponent(manifest.oauth2.client_id);
 oauthUrl += "&scope=" +encodeURIComponent(manifest.oauth2.scopes.join(" "));
@@ -59,5 +59,3 @@ function useToken(scope, token, callback) {
 	request.open("GET", scope +"?access_token=" +token, true);
 	request.send();
 }
-
-getData();*/
