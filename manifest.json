@@ -25,8 +25,10 @@
 	"key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7+X+/d9657E5F4KRcuFY4vOgHjE+2pwiIVZutJN1wImZN2FFq03BF6a6WVu7OaCZaN46syWsx/ecdxB0miCU4aiVx0ueojV4599FcptdLBVImN+wwwwMcI+WyiJBT+mcnG5auef7lo/z584QtWSCfrMNKq/SLTT7H3KQNqnySM11SyMtuToLWqgtPcXPKL349HqJCGE4S4cRnhSgKU1meAuZdXq9z4Tep3ibLGYKswHqyEMC0cv+/nckGTKUsFe5Jq7LPaOe0m+dFtrlH7yZWuAbNHqrwSgPc9PUXnjmo9rrSIfqM3VhpBEUEgCEsIRzp8rnJ7ByYErjAaCT0XsbuQIDAQAB",
 
 	"oauth2": {
-		"client_id": "993575597053-ea7644sbaratsjibsrkpvtgnvvs2f8pc.apps.googleusercontent.com",
+		"client_id": "993575597053-2oopmehg3tt5r6grbh4os4dvmbagq5rp.apps.googleusercontent.com",
 		"scopes": [
+			"profile",
+			"email",
 			"https://www.googleapis.com/auth/calendar"
 		]
 	}
