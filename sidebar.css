@@ -1,11 +1,11 @@
 #sidebar {
-	background-color: #181818;
+	background-color: var(--sidebar-color);
 	width: 48px;
 	height: 100%;
 	float: left;
 	position: relative;
 	z-index: 10;
-	box-shadow: 0 0 3px #000;
+/*	box-shadow: 0 0 3px #000;*/
 	user-select: none;
 	transform: translate(-48px, 0);
 	transition: transform 300ms;
@@ -23,12 +23,12 @@
 .sidebar-button .fa {
 	font-size: 26px;
 	line-height: 48px;
-	color: #b8b8b8;
+	color: var(--searchSel-color);
 	transition: color 200ms;
 }
 
 .sidebar-button:hover .fa {
-	color: #f8f8f8;
+	color: var(--bg-color);
 }
 
 .sidebar-button:hover .tooltip  {
@@ -67,7 +67,7 @@
 }
 
 #sidebar-selected {
-	background-color: #86c1b9;
+	background-color: var(--highlight-color);
 	width: 4px;
 	height: 48px;
 	position: absolute;

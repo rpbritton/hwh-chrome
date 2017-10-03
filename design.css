@@ -1,0 +1,10 @@
+.material-button {
+	user-select: none;
+	position: relative;
+	font-family: "Fira Extra Condensed";
+	font-size: 18px;
+	line-height: 30px;
+	padding: 0 10px;
+	border-radius: 3px;
+	cursor: pointer;
+}

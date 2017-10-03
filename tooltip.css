@@ -10,10 +10,11 @@
 	padding: 6px 11px;
 	opacity: 0;
 	border-radius: 2px;
-	background-color: #181818;
-	color: #b8b8b8;
+	background-color: var(--sidebar-color);
+	color: var(--bg-color);
 	transition: opacity 200ms;
 	white-space: nowrap;
-	font-family: "PT Mono";
+	font-family: "Fira Sans Medium";
+	letter-spacing: 2px;
 	font-size: 12px;
 }

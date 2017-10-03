@@ -1,23 +1,23 @@
 #search {
-	background-color: #f8f8f8;
+	background-color: var(--bg-color);
 	width: 100%;
 	height: 48px;
 	position: relative;
 }
 
 #search:hover #search-icon {
-	color: #b8b8b8;
+	color: var(--searchSel-color);
 }
 
 #search-icon {
-	margin: 0 12px;
+	padding: 0 12px;
 	cursor: pointer;
 	text-align: center;
 	width: 48px;
 	height: 48px;
 	user-select: none;
 	float: left;
-	color: #e8e8e8;
+	color: var(--search-color);
 }
 
 #search-icon .fa {
@@ -38,34 +38,30 @@
 	box-sizing: border-box;
 	white-space: nowrap;
 	overflow: auto;
-	font-family: "PT Mono";
-	font-size: 18px;
-	background-color: #f8f8f8;
-	color: #a5a2a2;
+	font-family: "Fira Mono";
+	font-size: 16px;
+	background-color: var(--bg-color);
+	color: var(--searchSel-color);
 }
 
 #search-box::placeholder {
-	color: #d8d8d8;
+	color: var(--search-color);
 }
-/*
-#search-box:focus {
-	color: #a5a2a2;
-}
-*/
+
 #search-box::selection {
-	background: #86c1b9;
-	color: #5c5855;
+	background-color: var(--highlight-bg-color);
+	color: var(--highlight-fg-color);
 }
 
 #search-clear {
 	margin: 0;
-	cursor: pointer;
+	cursor: text;
 	text-align: center;
 	width: 48px;
 	height: 48px;
 	user-select: none;
 	float: right;
-	color: #d8d8d8;
+	color: var(--search-color);
 	opacity: 0;
 	transition: opacity 500ms;
 }
@@ -77,31 +73,5 @@
 }
 
 #search-clear:hover {
-	color: #ab4642;
-/*
-#search-button {
-	position: absolute;
-	margin: 0 12px;
-	cursor: pointer;
-	text-align: center;
-	width: 48px;
-	height: 48px;
-	user-select: none;
+	color: var(--remove-color);
 }
-
-#search-button .fa {
-	font-size: 26px;
-	line-height: 48px;
-	color: #e8e8e8;
-	transition: color 200ms;
-}
-
-#search-button:hover .fa {
-	color: #d8d8d8;
-}
-
-#search-button:hover .tooltip  {
-	opacity: 0.6;
-	transition-delay: 700ms;
-}
-*/

@@ -1,3 +1,9 @@
-#wrapper-user {
+#page-user {
 	background: red;
+}
+
+#user-add {
+	background: green;
+	margin: 6px 8px;
+	float: left;
 }

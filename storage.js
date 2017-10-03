@@ -4,8 +4,11 @@ function getData(callback) {
 	});
 }
 
-function saveData(callback) {
-	chrome.storage.local.set(data, function() {
-		callback();
-	});
+function saveData(data) {
+	chrome.storage.local.set(data);
 }
+
+var data;
+getData(function(storage) {
+	data = storage;
+});
