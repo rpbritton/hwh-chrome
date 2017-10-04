@@ -1,14 +1,14 @@
 function getData(callback) {
-	chrome.storage.local.get(function(data) {
-		callback(data);
+	chrome.storage.local.get(function(storage) {
+		callback(storage);
 	});
 }
 
 function saveData(data) {
+	console.log(data);
 	chrome.storage.local.set(data);
 }
 
-var data;
-getData(function(storage) {
-	data = storage;
-});
+function clearData() {
+	chrome.storage.local.clear();
+}

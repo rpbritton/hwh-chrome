@@ -7,6 +7,10 @@
 	src: url(fonts/FiraSans-Medium.ttf);
 }
 @font-face {
+	font-family: "Fira Sans Light";
+	src: url(fonts/FiraSans-Light.ttf);
+}
+@font-face {
 	font-family: "Fira Extra Condensed";
 	src: url(fonts/FiraSansExtraCondensed-Regular.ttf);
 }

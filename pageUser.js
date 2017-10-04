@@ -6,3 +6,7 @@ userAdd.addEventListener("mousedown", function(ev) {
 userAdd.addEventListener("click", function(ev) {
 	addAccount();
 });
+
+function createUser(account, x) {
+	console.log(account);
+}

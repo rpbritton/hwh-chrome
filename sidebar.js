@@ -1,6 +1,6 @@
 var sidebarButtons = document.getElementsByClassName("sidebar-button");
 var selectedPage;
-selectPage(document.getElementById("page-" +sidebarButtons[1].id.substring(8)));	// default selected button
+selectPage(document.getElementById("page-" +sidebarButtons[0].id.substring(8)));	// default selected button
 
 for (var x = 0; x < sidebarButtons.length; x++) {
 	sidebarButtons[x].addEventListener("mousedown", function(ev) {
