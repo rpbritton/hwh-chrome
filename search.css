@@ -6,7 +6,7 @@
 }
 
 #search:hover #search-icon {
-	color: var(--searchSel-color);
+	fill: var(--searchSel-color);
 }
 
 #search-icon {
@@ -17,13 +17,14 @@
 	height: 48px;
 	user-select: none;
 	float: left;
-	color: var(--search-color);
+	fill: var(--search-color);
+	transition: fill 200ms;
 }
 
-#search-icon .fa {
-	transition: color 200ms;
-	font-size: 24px;
-	line-height: 48px;
+#search-icon svg {
+	margin: 6px 0 0 6px;
+	width: 36px;
+	height: 36px;
 }
 
 #search-box {
@@ -52,7 +53,7 @@
 	background-color: var(--highlight-bg-color);
 	color: var(--highlight-fg-color);
 }
-
+/*
 #search-clear {
 	margin: 0;
 	cursor: text;
@@ -75,3 +76,4 @@
 #search-clear:hover {
 	color: var(--remove-color);
 }
+*/

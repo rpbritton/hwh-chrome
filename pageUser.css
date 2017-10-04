@@ -9,7 +9,6 @@
 }
 
 .user-img {
-	background-image: url(https://lh6.googleusercontent.com/-guPTOCf3KbA/AAAAAAAAAAI/AAAAAAAAAhQ/J2Eh0JujqiY/photo.jpg);
 	border-radius: 50%;
 	width: 48px;
 	height: 48px;
@@ -17,9 +16,9 @@
 }
 
 .user-text {
-	margin: 0 0 0 20px;
+	margin: 0 20px;
 	float: left;
-	width: calc(100% - 68px);
+	width: calc(100% - 136px);
 	line-height: 18px;
 	font-family: "Fira Sans";
 }
@@ -35,8 +34,20 @@
 	color: var(--searchSel-color);
 }
 
+.user-clear .design-tooltip {
+	margin: auto;
+	right: 95%;
+	top: 0;
+	bottom: 0;
+}
+
+.user-clear:hover .design-tooltip {
+	opacity: 0.6;
+	transition-delay: 700ms;
+}
+
 #user-add {
-	margin: 6px 8px;
+	margin: 16px;
 	float: left;
 	background: var(--highlight-color);
 	color: var(--bg-color);

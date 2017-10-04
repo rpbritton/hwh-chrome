@@ -17,18 +17,29 @@
 	cursor: pointer;
 	width: 48px;
 	height: 48px;
-	transition: fill 200ms;
-	fill: var(--searchSel-color);
 }
 
 .sidebar-button:hover {
-	fill: var(--bg-color);
+
+}
+/*
+.sidebar-button .svg {
+	margin: 6px;
+	fill: var(--searchSel-color);
+	transition: color 200ms;
 }
 
+.sidebar-button:hover .svg {
+	fill: var(--bg-color);
+}
+*/
+
 .sidebar-button svg {
-	margin: 8px 0 0 8px;
-	width: 32px;
-	height: 32px;
+	margin: 6px;
+}
+
+.sidebar-button {
+	fill: red;
 }
 
 .sidebar-button .design-tooltip {
@@ -53,18 +64,13 @@
 	left: 0;
 }
 
-#sidebar-create {
+#sidebar-add {
 	top: 96px;
 	left: 0;
 }
 
 #sidebar-done {
 	top: 144px;
-	left: 0;
-}
-
-#sidebar-removed {
-	top: 192px;
 	left: 0;
 }
 
