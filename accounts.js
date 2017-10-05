@@ -11,25 +11,40 @@ function addAccount() {
 		}
 		else {
 			var token = parseToken(promise);
-			useToken("https://www.googleapis.com/oauth2/v1/userinfo", token, function(account) {
-				account.token = token;
-				if (!data.accounts) {
+			useToken("https://www.googleapis.com/oauth2/v1/userinfo", "?access_token=", token, function(newAccount) {
+				newAccount.token = token;
+				if (!data.accounts || data.accounts.length == 0) {
 					data.accounts = [];
-					data.accounts.push(account);
-					saveData(data);
+					data.accounts.push(newAccount);
+					saveData();
+					createUser(newAccount);
+					userAdd.style.top = (data.accounts.length*68) +"px";
 				}
 				else {
 					var duplicate = false;
-					for (var x = 0; x < data.accounts.length; x++) {
-						if (data.accounts[x].id == account.id) {
+					data.accounts.forEach(function(account, x) {
+						if (account.id == newAccount.id) {
 							duplicate = true;
 						}
 						if (x+1 == data.accounts.length && !duplicate) {
-							data.accounts.push(account);
-							saveData(data);
+							data.accounts.push(newAccount);
+							saveData();
+							createUser(newAccount);
 						}
-					}
+					});
 				}
+			});
+		}
+	});
+}
+
+function deleteAccount(selAccount, callback) {
+	data.accounts.forEach(function (account, x) {
+		if (selAccount.id == account.id) {
+			getScope("https://accounts.google.com/o/oauth2/revoke", "?token=", x, function() {
+				data.accounts.splice(x, 1);
+				saveData();
+				callback();
 			});
 		}
 	});
@@ -39,38 +54,39 @@ function refreshAccount(account, callback) {
 	getScope("https://www.googleapis.com/oauth2/v1/userinfo", account.id, callback);
 }
 */
-function getScope(scope, accNum, callback) {
-	useToken(scope, data.accounts[accNum].token, function(response) {
-		switch (response) {
+function getScope(scope, tokenArg, accNum, callback) {
+	useToken(scope, tokenArg, data.accounts[accNum].token, function(response) {
+/*		switch (response) {
+			case 400:
 			case 401:		// Must get new token
 				getToken(data.accounts[accNum].id, function(token) {
 					switch (token) {
+						case 400:
 						case 401:		// Must grant access
 							break;
 						default:		// New token retrieved & scope retrieved
 							data.accounts[accNum].token = token;
-							useToken(scope, data.accounts[accNum].token, callback);
+							saveData();
+							useToken(scope, tokenArg, data.accounts[accNum].token, callback);
 					}
 				});
 				break;
 			default:		// Scope retrieved
 				callback(response);
 		}
+*/		callback(response);
 	});
 }
 
-function useToken(scope, token, callback) {
+function useToken(scope, tokenArg, token, callback) {
 	var request = new XMLHttpRequest();
-	request.onload = function() {
-		if (this.status >= 200 && this.status < 400) {
-			callback(JSON.parse(request.responseText));
-		}
-		else {
-			callback(this.status);
+	request.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			callback(JSON.parse(this.responseText));
 		}
 	};
 
-	request.open("GET", scope +"?access_token=" +token, true);
+	request.open("GET", scope +tokenArg +token, true);
 	request.send();
 }
 

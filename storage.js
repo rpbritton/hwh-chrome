@@ -4,8 +4,7 @@ function getData(callback) {
 	});
 }
 
-function saveData(data) {
-	console.log(data);
+function saveData() {
 	chrome.storage.local.set(data);
 }
 

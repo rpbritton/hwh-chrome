@@ -19,7 +19,8 @@
 
 	"permissions": [
 		"identity",
-		"storage"
+		"storage",
+		"https://*.google.com/"
 	],
 	
 	"key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7+X+/d9657E5F4KRcuFY4vOgHjE+2pwiIVZutJN1wImZN2FFq03BF6a6WVu7OaCZaN46syWsx/ecdxB0miCU4aiVx0ueojV4599FcptdLBVImN+wwwwMcI+WyiJBT+mcnG5auef7lo/z584QtWSCfrMNKq/SLTT7H3KQNqnySM11SyMtuToLWqgtPcXPKL349HqJCGE4S4cRnhSgKU1meAuZdXq9z4Tep3ibLGYKswHqyEMC0cv+/nckGTKUsFe5Jq7LPaOe0m+dFtrlH7yZWuAbNHqrwSgPc9PUXnjmo9rrSIfqM3VhpBEUEgCEsIRzp8rnJ7ByYErjAaCT0XsbuQIDAQAB",

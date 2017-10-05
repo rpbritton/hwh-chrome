@@ -26,7 +26,7 @@ var colors = {
 
 colors.ink = "#" +colors.color[17][4];
 colors.bg = "#" +colors.color[17][0];
-colors.searchSel = "#" +colors.color[17][4];
+colors.searchSel = "#" +colors.color[17][5];
 colors.search = "#" +colors.color[17][3];
 colors.remove = "#" +colors.color[0][8];
 colors.highlightBg = "#" +colors.color[7][0];
