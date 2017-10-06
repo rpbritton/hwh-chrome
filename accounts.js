@@ -5,6 +5,15 @@ oauthUrl += "&scope=" +encodeURIComponent(manifest.oauth2.scopes.join(" "));
 oauthUrl += "&redirect_uri=" +chrome.identity.getRedirectURL("oauth2");
 
 function addAccount() {
+	function accountGood(account) {
+		data.accounts.push(account);
+		getScope("https://www.googleapis.com/calendar/v3/users/me/calendarList", "?access_token=", data.accounts.length-1, function(calendarList) {
+			console.log(calendarList);
+			saveData();
+			createUser(account, data.accounts.length-1);
+		});
+	}
+
 	chrome.identity.launchWebAuthFlow({"url": oauthUrl +"&prompt=select_account", "interactive": true}, function(promise) {
 		if (chrome.runtime.lastError) {
 			console.log(chrome.runtime.lastError.message);
@@ -15,9 +24,7 @@ function addAccount() {
 				account.token = token;
 				if (!data.accounts || data.accounts.length == 0) {
 					data.accounts = [];
-					data.accounts.push(account);
-					saveData();
-					createUser(account, data.accounts.length-1);
+					accountGood(account);
 				}
 				else {
 					var duplicate = false;
@@ -26,9 +33,7 @@ function addAccount() {
 							duplicate = true;
 						}
 						if (accNum+1 == data.accounts.length && !duplicate) {
-							data.accounts.push(account);
-							saveData();
-							createUser(account, data.accounts.length-1);
+							accountGood(account);
 						}
 					});
 				}
