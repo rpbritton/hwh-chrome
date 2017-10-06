@@ -11,25 +11,24 @@ function addAccount() {
 		}
 		else {
 			var token = parseToken(promise);
-			useToken("https://www.googleapis.com/oauth2/v1/userinfo", "?access_token=", token, function(newAccount) {
-				newAccount.token = token;
+			useToken("https://www.googleapis.com/oauth2/v1/userinfo", "?access_token=", token, function(account) {
+				account.token = token;
 				if (!data.accounts || data.accounts.length == 0) {
 					data.accounts = [];
-					data.accounts.push(newAccount);
+					data.accounts.push(account);
 					saveData();
-					createUser(newAccount);
-					userAdd.style.top = (data.accounts.length*68) +"px";
+					createUser(account, data.accounts.length-1);
 				}
 				else {
 					var duplicate = false;
-					data.accounts.forEach(function(account, x) {
-						if (account.id == newAccount.id) {
+					data.accounts.forEach(function(selAccount, accNum) {
+						if (selAccount.id == account.id) {
 							duplicate = true;
 						}
-						if (x+1 == data.accounts.length && !duplicate) {
-							data.accounts.push(newAccount);
+						if (accNum+1 == data.accounts.length && !duplicate) {
+							data.accounts.push(account);
 							saveData();
-							createUser(newAccount);
+							createUser(account, data.accounts.length-1);
 						}
 					});
 				}
@@ -38,11 +37,11 @@ function addAccount() {
 	});
 }
 
-function deleteAccount(selAccount, callback) {
-	data.accounts.forEach(function (account, x) {
-		if (selAccount.id == account.id) {
-			getScope("https://accounts.google.com/o/oauth2/revoke", "?token=", x, function() {
-				data.accounts.splice(x, 1);
+function deleteAccount(id, callback) {
+	data.accounts.forEach(function(account, accNum) {
+		if (account.id == id) {
+			getScope("https://accounts.google.com/o/oauth2/revoke", "?token=", accNum, function() {
+				data.accounts.splice(accNum, 1);
 				saveData();
 				callback();
 			});
@@ -56,25 +55,24 @@ function refreshAccount(account, callback) {
 */
 function getScope(scope, tokenArg, accNum, callback) {
 	useToken(scope, tokenArg, data.accounts[accNum].token, function(response) {
-/*		switch (response) {
+		switch (response) {
 			case 400:
 			case 401:		// Must get new token
 				getToken(data.accounts[accNum].id, function(token) {
-					switch (token) {
-						case 400:
-						case 401:		// Must grant access
-							break;
-						default:		// New token retrieved & scope retrieved
+//					console.log(token);
+//					switch (token) {
+//						case "User interaction required.":		// Must grant access
+//							break;
+//						default:		// New token retrieved & scope retrieved
 							data.accounts[accNum].token = token;
 							saveData();
 							useToken(scope, tokenArg, data.accounts[accNum].token, callback);
-					}
+//					}
 				});
 				break;
 			default:		// Scope retrieved
 				callback(response);
 		}
-*/		callback(response);
 	});
 }
 
@@ -83,6 +81,9 @@ function useToken(scope, tokenArg, token, callback) {
 	request.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			callback(JSON.parse(this.responseText));
+		}
+		if (this.readyState == 4 && this.status >= 400) {
+			callback(this.status);
 		}
 	};
 
@@ -93,7 +94,8 @@ function useToken(scope, tokenArg, token, callback) {
 function getToken(userId, callback) {
 	chrome.identity.launchWebAuthFlow({"url": oauthUrl +"&login_hint=" +userId, "interactive": false}, function(promise) {
 		if (chrome.runtime.lastError) {
-			console.log(chrome.runtime.lastError.message);
+//			console.log(chrome.runtime.lastError.message);
+			callback(chrome.runtime.lastError);
 		}
 		else {
 			callback(parseToken(promise));

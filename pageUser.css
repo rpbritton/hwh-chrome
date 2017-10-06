@@ -2,12 +2,18 @@
 	overflow-y: auto;
 }
 
+.users-wrapper {
+
+}
+
 .user-wrapper {
 	white-space: nowrap;
-	height: 68px;
+	height: 0;
+	opacity: 0;
 	user-select: none;
-	position: absolute;
+	position: relative;
 	width: 100%;
+	transition: opacity 400ms, height 400ms;
 }
 
 .user-img {
@@ -15,29 +21,40 @@
 	width: 48px;
 	height: 48px;
 	margin: 10px 20px;
-	float: left;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .user-text {
-	float: left;
 	width: calc(100% - 156px);
 	line-height: 18px;
 	font-family: "Fira Sans";
+	white-space: nowrap;
+	position: absolute;
+	left: 88px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .user-name {
 	margin-top: 16px;
 	color: var(--sidebar-color);
+	top: 0px;
 	
 }
 
 .user-email {
 	margin-bottom: 16px;
 	color: var(--searchSel-color);
+	top: 34px;
 }
 
 .user-clear {
 	margin: 10px;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 
 .user-clear .design-tooltip {

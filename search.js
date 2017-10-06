@@ -10,7 +10,7 @@ searchBox.addEventListener("focusout", function(ev) {
 	}
 });
 searchBox.addEventListener("mousedown", function(ev) {
-	inkAnimation(ev, this.parentElement, colors.ink);
+	inkAnimation(ev, this.parentElement, this.parentElement, colors.ink);
 });
 
 searchBox.addEventListener("input", function(ev) {
@@ -32,7 +32,7 @@ search.addEventListener("click", function(ev) {
 	searchBox.focus();
 });
 searchIcon.addEventListener("mousedown", function(ev) {
-	inkAnimation(ev, this.parentElement, colors.ink);
+	inkAnimation(ev, this.parentElement, this.parentElement, colors.ink);
 });
 
 var searchClear = document.getElementById("search-clear");
@@ -45,9 +45,9 @@ searchClear.addEventListener("click", function(ev) {
 });
 searchClear.addEventListener("mousedown", function(ev) {
 	if (searchBox.value) {
-		inkAnimation(ev, this.parentElement, colors.remove);
+		inkAnimation(ev, this.parentElement, this, colors.remove);
 	}
 	else {
-		inkAnimation(ev, this.parentElement, colors.ink);
+		inkAnimation(ev, this.parentElement, this.parentElement, colors.ink);
 	}
 });

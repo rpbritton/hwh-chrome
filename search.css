@@ -53,6 +53,10 @@
 	background-color: var(--highlight-bg-color);
 	color: var(--highlight-fg-color);
 }
+
+#search-clear {
+	float: left;
+}
 /*
 #search-clear {
 	margin: 0;

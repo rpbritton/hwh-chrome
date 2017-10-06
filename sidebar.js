@@ -4,7 +4,7 @@ selectPage(document.getElementById("page-" +sidebarButtons[0].id.substring(8)));
 
 for (var x = 0; x < sidebarButtons.length; x++) {
 	sidebarButtons[x].addEventListener("mousedown", function(ev) {
-		inkAnimation(ev, this, colors.ink);
+		inkAnimation(ev, this, this, colors.ink);
 	});
 
 	sidebarButtons[x].addEventListener("click", function(ev) {

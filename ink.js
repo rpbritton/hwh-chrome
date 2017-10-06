@@ -1,4 +1,4 @@
-function inkAnimation(ev, el, color) {
+function inkAnimation(ev, el, selector, color) {
 	var inkWrapper = document.createElement('div');
 	inkWrapper.setAttribute('class', 'ink-wrapper');
 
@@ -17,8 +17,8 @@ function inkAnimation(ev, el, color) {
 		ink.style.transform = "scale(1)";
 	}, 0);
 
-	el.addEventListener("mouseup", function() { inkAnimationEnd(inkWrapper); });
-	el.addEventListener("mouseleave", function() { inkAnimationEnd(inkWrapper); });
+	selector.addEventListener("mouseup", function() { inkAnimationEnd(inkWrapper); });
+	selector.addEventListener("mouseleave", function() { inkAnimationEnd(inkWrapper); });
 
 	inkWrapper.appendChild(ink);
 	el.appendChild(inkWrapper);
