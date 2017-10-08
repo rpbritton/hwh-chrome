@@ -59,14 +59,14 @@
 
 .user-clear .design-tooltip {
 	margin: auto;
-	right: 95%;
-	top: 0;
+	right: 10%;
+	top: calc(100% + 14px);
 	bottom: 0;
 }
 
 .user-clear:hover .design-tooltip {
-	opacity: 0.6;
-	transition-delay: 700ms;
+	opacity: 0.8;
+	transition-delay: 500ms;
 }
 
 #user-add {

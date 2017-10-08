@@ -55,17 +55,18 @@
 
 .design-tooltip {
 	position: absolute;
-	height: 1em;
 	pointer-events: none;
 	z-index: 20;
-	padding: 6px 11px;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
 	opacity: 0;
 	border-radius: 2px;
 	background-color: var(--sidebar-color);
 	color: var(--bg-color);
-	transition: opacity 200ms;
+	transition: opacity 150ms;
 	white-space: nowrap;
-	font-family: "Fira Sans Medium";
-	letter-spacing: 2px;
+	font-family: "Fira Sans Light";
 	font-size: 12px;
+	box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.15);
 }

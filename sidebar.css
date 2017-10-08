@@ -5,10 +5,10 @@
 	float: left;
 	position: relative;
 	z-index: 10;
-/*	box-shadow: 0 0 3px #000;*/
 	user-select: none;
 	transform: translate(-48px, 0);
 	transition: transform 300ms;
+	box-shadow: 1px 0 3px 1px rgba(0, 0, 0, 0.15);
 }
 
 .sidebar-button {
@@ -39,8 +39,8 @@
 }
 
 .sidebar-button:hover .design-tooltip {
-	opacity: 0.6;
-	transition-delay: 700ms;
+	opacity: 0.8;
+	transition-delay: 500ms;
 }
 
 #sidebar-user {
