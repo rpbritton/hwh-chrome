@@ -70,20 +70,28 @@
 
 .user-calendar-wrapper {
 	position: relative;
-	height: 32px;
+	opacity: 0;
+	height: 0;
+	transition: opacity 400ms, height 400ms;
 }
 
-.user-calendar-toggle div {
-	margin: 10px 20px;
+.user-calendar-toggle {
+	margin: 0 10px;
 }
 
 .user-calendar-summary {
 	font-family: "Fira Sans";
+	color: var(--searchSel-color);
 	font-size: 12px;
 	line-height: 32px;
 	position: absolute;
 	top: 0;
 	left: 68px;
+	transition: color 400ms;
+}
+
+.user-calendar-on .user-calendar-summary {
+	color: var(--sidebar-color);
 }
 
 #user-add {

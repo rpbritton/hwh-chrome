@@ -63,43 +63,38 @@ function createUser(account, accNum, callback) {
 function createUserCalendar(calendar, calNum, callback) {
 	var userCalendarWrapper = document.createElement("div");
 	userCalendarWrapper.className = "user-calendar-wrapper";
-	
-	var userCalendarToggle = document.createElement("label");
-	userCalendarToggle.className = "user-calendar-toggle design-toggle-switch";
-//	userCalendarToggle.innerHTML = ""
-//		+'<input type="checkbox">'
-//		+'<div></div>';
-	var userCalendarToggleCheckbox = document.createElement("input");
-	userCalendarToggleCheckbox.type = "checkbox";
-	userCalendarToggle.appendChild(userCalendarToggleCheckbox);
-	var userCalendarToggleDiv = document.createElement("div");
-	userCalendarToggle.appendChild(userCalendarToggleDiv);
-/*	userCalendarToggleDiv.addEventListener("mousedown", function(ev) {
-		inkAnimation(ev, this, this, colors.ink);
-	});*/
-/*	sidebarButtons[x].addEventListener("click", function(ev) {
-        if (this.id.substring(8) !== "refresh") {
-            selectPage(document.getElementById("page-" +this.id.substring(8)));
-        }
-    });
-*/	userCalendarWrapper.appendChild(userCalendarToggle);
 
 	var userCalendarSummary = document.createElement("span");
 	userCalendarSummary.className = "user-calendar-summary";
 	userCalendarSummary.innerHTML = calendar.summary;
 	userCalendarWrapper.appendChild(userCalendarSummary);
 
-	callback(userCalendarWrapper);
+	function disableCalendar(on) {
+		if (on) {
+			userCalendarWrapper.classList.add("user-calendar-on");
+		}
+		else {
+			userCalendarWrapper.classList.remove("user-calendar-on");
+		}
+	}
+
+	createToggleSwitch(calendar.backgroundColor, disableCalendar, function(toggleSwitch) {
+		toggleSwitch.classList.add("user-calendar-toggle");
+		userCalendarWrapper.appendChild(toggleSwitch);
+
+		callback(userCalendarWrapper);
+	});
 }
 
-function addUser(userNum) {
-	usersWrapper.appendChild(users[userNum]);
- 	users[userNum].getElementsByClassName("user-info")[0].focus();
-	users[userNum].getElementsByClassName("user-info")[0].style.opacity = "1";
-	users[userNum].getElementsByClassName("user-info")[0].style.height = "68px";
-	[].forEach.call(users[userNum].getElementsByClassName("user-calendar-wrapper"), function(calendarWrapper, calNum) {
+function addUser(user) {
+	users.push(user);
+	usersWrapper.appendChild(user);
+ 	user.getElementsByClassName("user-info")[0].focus();
+	user.getElementsByClassName("user-info")[0].style.opacity = "1";
+	user.getElementsByClassName("user-info")[0].style.height = "68px";
+	[].forEach.call(user.getElementsByClassName("user-calendar-wrapper"), function(calendarWrapper, calNum) {
 		calendarWrapper.style.opacity = "1";
-//		calendarWrapper.style.height = "30px";
+		calendarWrapper.style.height = "32px";
 	});
 }
 
@@ -107,10 +102,13 @@ function deleteUser(userNum) {
 	setTimeout(function() {
 		usersWrapper.removeChild(users[userNum]);
 		users.splice(userNum, 1);
-		console.log(users);
 	}, 400);
-	users[userNum].style.opacity = "";
-	users[userNum].style.height = "";
+	users[userNum].getElementsByClassName("user-info")[0].style.opacity = "";
+	users[userNum].getElementsByClassName("user-info")[0].style.height = "";
+	[].forEach.call(users[userNum].getElementsByClassName("user-calendar-wrapper"), function(calendarWrapper, calNum) {
+		calendarWrapper.style.opacity = "";
+		calendarWrapper.style.height = "";
+	});
 }
 
 var userAdd = document.getElementById("user-add");

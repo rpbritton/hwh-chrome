@@ -68,24 +68,34 @@
 	font-size: 12px;
 	box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.15);
 }
-
-.design-toggle-switch {
-	pointer-events: none;
+/*
+.design-selector::before {
+	
 }
 
-.design-toggle-switch div {
-	pointer-events: auto;
-	display: inline-block;
+.design-selector-on::before {
+	
+}
+*/
+.design-toggle-switch {
+	padding: 10px;
 	height: 12px;
 	width: 28px;
+	cursor: pointer;
+}
+
+.design-toggle-track {
+	pointer-events: auto;
+	display: inline-block;
+	height: 100%;
+	width: 100%;
 	background-color: var(--sidebar-color);
 	border-radius: 50px;
 	position: relative;
-	cursor: pointer;
 	transition: all 300ms;
 }
 
-.design-toggle-switch div:before {
+.design-toggle-track:before {
 	content: "";
 	position: absolute;
 	top: 0;
@@ -96,12 +106,12 @@
 	background-color: var(--bg-color);
 	opacity: 0.5;
 }
-
+/*
 .design-toggle-switch input {
 	display: none;
 }
-
-.design-toggle-switch div::after {
+*/
+.design-toggle-thumb {
 	content: "";
 	position: absolute;
 	top: -2px;
@@ -114,15 +124,24 @@
 	transition: all 300ms;
 }
 
-.design-toggle-switch input:checked + div::after {
+.design-toggle-on .design-toggle-track {
+	background-color: var(--highlight-color);
+}
+
+.design-toggle-on .design-toggle-thumb {
+	left: 14px;
+	background-color: var(--highlight-color);
+}
+/*
+.design-toggle-switch input:checked ~ .design-toggle-switch-track .design-toggle-switch-thumb {
 	left: 14px;
 	background-color: var(--highlight-color);
 }
 
-.design-toggle-switch input:checked + div {
+.design-toggle-switch input:checked ~ .design-toggle-switch-track {
 	background-color: var(--highlight-color);
 }
-/*
+*//*
 .design-toggle-switch div::after(2) {
 	content: "";
 	position: absolute;

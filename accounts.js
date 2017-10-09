@@ -51,8 +51,9 @@ function createAccount(account) {
 				if (x == calendarList.items.length) {
 					data.accounts[accNum].calendarList = calendarList;
 					saveData(function() {
-						users.push(createUser(account, accNum, function(user) {}));
-						addUser(users.length-1);
+						createUser(account, accNum, function(user) {
+							addUser(user);
+						});
 					});
 				}
 			});		
@@ -68,7 +69,6 @@ function deleteAccount(id, callback) {
 			getScope(revokeUrl, "?token=", accNum, function() {
 				data.accounts.splice(accNum, 1);
 				saveData();
-				console.log(id);
 				deleteUser(accNum);
 			});
 		}
@@ -81,15 +81,15 @@ function refreshAccount(account, callback) {
 */
 function getScope(scope, tokenType, accNum, callback) {
 	if (data.accounts[accNum].tokenExpiration > Date.now()) {
+		useToken(scope, tokenType, data.accounts[accNum].token, callback);
+	}
+	else {
 		getToken(data.accounts[accNum].id, function(promise) {
 			data.accounts[accNum].token = promise.substring(promise.indexOf("#access_token=") +14, promise.indexOf("&token_type="));
 			data.accounts[accNum].tokenExpiration = Date.now() +promise.substring(promise.indexOf("&expires_in=") +12)*1000-60000;
 			saveData();
 			useToken(scope, tokenType, data.accounts[accNum].token, callback);
 		});
-	}
-	else {
-		useToken(scope, tokenType, data.accounts[accNum].token, callback);
 	}
 }
 
