@@ -3,14 +3,12 @@
 }
 
 .users-wrapper {
-
 }
 
-.user-wrapper {
+.user-info {
 	white-space: nowrap;
 	height: 0;
 	opacity: 0;
-	user-select: none;
 	position: relative;
 	width: 100%;
 	transition: opacity 400ms, height 400ms;
@@ -28,8 +26,10 @@
 
 .user-text {
 	width: calc(100% - 156px);
-	line-height: 18px;
 	font-family: "Fira Sans";
+	font-size: 12px;
+	line-height: 18px;
+	color: var(--sidebar-color);
 	white-space: nowrap;
 	position: absolute;
 	left: 88px;
@@ -39,7 +39,6 @@
 
 .user-name {
 	margin-top: 16px;
-	color: var(--sidebar-color);
 	top: 0px;
 	
 }
@@ -67,6 +66,24 @@
 .user-clear:hover .design-tooltip {
 	opacity: 0.8;
 	transition-delay: 500ms;
+}
+
+.user-calendar-wrapper {
+	position: relative;
+	height: 32px;
+}
+
+.user-calendar-toggle div {
+	margin: 10px 20px;
+}
+
+.user-calendar-summary {
+	font-family: "Fira Sans";
+	font-size: 12px;
+	line-height: 32px;
+	position: absolute;
+	top: 0;
+	left: 68px;
 }
 
 #user-add {

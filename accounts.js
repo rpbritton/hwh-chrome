@@ -51,7 +51,8 @@ function createAccount(account) {
 				if (x == calendarList.items.length) {
 					data.accounts[accNum].calendarList = calendarList;
 					saveData(function() {
-						createUser(data.accounts[accNum], accNum);
+						users.push(createUser(account, accNum, function(user) {}));
+						addUser(users.length-1);
 					});
 				}
 			});		
@@ -67,7 +68,8 @@ function deleteAccount(id, callback) {
 			getScope(revokeUrl, "?token=", accNum, function() {
 				data.accounts.splice(accNum, 1);
 				saveData();
-				callback();
+				console.log(id);
+				deleteUser(accNum);
 			});
 		}
 	});
@@ -116,7 +118,7 @@ function useToken(scope, tokenType, token, callback) {
 				callback(JSON.parse(this.responseText));
 			}
 			if (this.status == 400 || this.status == 401) {
-				console.log("access revoked");
+				console.log("access was (likely) revoked");
 			}
 		}
 	};

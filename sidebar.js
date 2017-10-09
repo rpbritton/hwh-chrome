@@ -6,7 +6,6 @@ for (var x = 0; x < sidebarButtons.length; x++) {
 	sidebarButtons[x].addEventListener("mousedown", function(ev) {
 		inkAnimation(ev, this, this, colors.ink);
 	});
-
 	sidebarButtons[x].addEventListener("click", function(ev) {
 		if (this.id.substring(8) !== "refresh") {
 			selectPage(document.getElementById("page-" +this.id.substring(8)));

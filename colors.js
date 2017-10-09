@@ -25,7 +25,8 @@ var colors = {
 };
 
 colors.ink = "#" +colors.color[17][4];
-colors.bg = "#" +colors.color[17][0];
+colors.bg = "#" +colors.color[17][1];
+colors.bgBright = "#" +colors.color[17][0];
 colors.searchSel = "#" +colors.color[17][5];
 colors.search = "#" +colors.color[17][3];
 colors.remove = "#" +colors.color[0][8];
@@ -36,6 +37,7 @@ colors.highlight = "#" +colors.color[2][5];
 
 document.body.style.setProperty("--ink-color", colors.ink);
 document.body.style.setProperty("--bg-color", colors.bg);
+document.body.style.setProperty("--bg-bright-color", colors.bgBright);
 document.body.style.setProperty("--searchSel-color", colors.searchSel);
 document.body.style.setProperty("--search-color", colors.search);
 document.body.style.setProperty("--remove-color", colors.remove);

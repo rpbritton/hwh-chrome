@@ -8,7 +8,10 @@ getData(function(storage) {
 //	});
 	if (data.accounts) {
 		data.accounts.forEach(function(account, accNum) {
-			createUser(account, accNum, function(user) {});
+			createUser(account, accNum, function(user) {
+				users.push(user);
+				addUser(users.length-1);
+			});
 		});
 	}
 });
