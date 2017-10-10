@@ -58,7 +58,7 @@
 
 .user-clear .design-tooltip {
 	margin: auto;
-	right: 10%;
+	right: 0;
 	top: calc(100% + 14px);
 	bottom: 0;
 }
