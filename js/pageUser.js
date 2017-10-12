@@ -89,7 +89,7 @@ function createUserCalendar(calendar, calNum, callback) {
 function addUser(user) {
 	users.push(user);
 	usersWrapper.appendChild(user);
- 	user.getElementsByClassName("user-info")[0].focus();
+	user.getElementsByClassName("user-info")[0].focus();
 	user.getElementsByClassName("user-info")[0].style.opacity = "1";
 	user.getElementsByClassName("user-info")[0].style.height = "68px";
 	[].forEach.call(user.getElementsByClassName("user-calendar-wrapper"), function(calendarWrapper, calNum) {

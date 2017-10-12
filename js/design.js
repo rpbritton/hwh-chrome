@@ -8,6 +8,7 @@ function createToggleSwitch(color, on, callback) {
 			if (color) {
 				toggleTrack.style.backgroundColor = color;
 				toggleThumb.style.backgroundColor = color;
+			//	toggleSelect.style.backgroundColor = color;
 			}
 		}
 		else {
@@ -16,22 +17,53 @@ function createToggleSwitch(color, on, callback) {
 			if (color) {
 				toggleTrack.style.backgroundColor = "";
 				toggleThumb.style.backgroundColor = "";
+			//	toggleSelect.style.backgroundColor = colors.searchSel;
 			}
 		}
 	});
-/*	toggleSwitch.addEventListener("mousedown", function(ev) {
-		toggleThumb.classList.add("design-selector-on");
+	toggleSwitch.addEventListener("mousedown", function(ev) {
+		if (!toggleSwitch.classList.contains("design-toggle-on")) {
+			toggleSelectOff.classList.add("design-select-on");
+		}
+		else {
+			toggleSelectOn.classList.add("design-select-on");
+		}
 	});
 	toggleSwitch.addEventListener("mouseup", function(ev) {
-		toggleThumb.classList.remove("design-selector-on");
+		if (!toggleSwitch.classList.contains("design-toggle-on")) {
+			toggleSelectOff.classList.remove("design-select-on");
+		}
+		else {
+			toggleSelectOn.classList.remove("design-select-on");
+		}
 	});
 	toggleSwitch.addEventListener("mouseleave", function(ev) {
-		toggleThumb.classList.remove("design-selector-on");
+		if (!toggleSwitch.classList.contains("design-toggle-on")) {
+			toggleSelectOff.classList.remove("design-select-on");
+		}
+		else {
+			toggleSelectOn.classList.remove("design-select-on");
+		}
 	});
-*/
+
 	var toggleTrack = document.createElement("div");
 	toggleTrack.className = "design-toggle-track";
 	toggleSwitch.appendChild(toggleTrack);
+
+	var toggleSelectOff = document.createElement("div");
+	toggleSelectOff.className = "design-select";
+	toggleTrack.appendChild(toggleSelectOff);
+
+	var toggleSelectOn = document.createElement("div");
+	toggleSelectOn.className = "design-select";
+	if (color) {
+		toggleSelectOn.style.backgroundColor = color;
+	}
+	else {
+		toggleSelectOn.style.backgroundColor = "var(--highlight-color)";
+	}
+	toggleSelectOn.style.left = "2px";
+	toggleTrack.appendChild(toggleSelectOn);
 
 	var toggleThumb = document.createElement("div");
 	toggleThumb.className = "design-toggle-thumb design-selector";
